@@ -1,5 +1,7 @@
 import type { Config } from "tailwindcss";
 
+// Tailwind v4 uses CSS-based configuration via @theme in globals.css
+// This file is kept for IDE compatibility only
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -7,12 +9,7 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
