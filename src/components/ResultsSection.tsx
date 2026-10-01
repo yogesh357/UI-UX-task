@@ -4,34 +4,26 @@ const stats = [
   {
     value: "92%",
     label: "Pass Rate",
-    description: "Of our students pass their exams on the first attempt",
+    description: "Students achieving first-attempt exam success",
     icon: "🎯",
-    color: "#4f6ef7",
-    bg: "#eff6ff",
   },
   {
     value: "4.9/5",
-    label: "Avg. Rating",
-    description: "Based on 50,000+ student reviews across all courses",
+    label: "Average Rating",
+    description: "Verified ratings across 50,000+ course reviews",
     icon: "⭐",
-    color: "#fed330",
-    bg: "#fffbeb",
   },
   {
     value: "300+",
-    label: "Expert Tutors",
-    description: "Verified educators from top universities worldwide",
+    label: "Verified Educators",
+    description: "Curated tutors from global top institutions",
     icon: "👨‍🏫",
-    color: "#26de81",
-    bg: "#f0fdf4",
   },
   {
     value: "10,000+",
-    label: "Students",
-    description: "Active learners achieving their academic goals daily",
+    label: "Active Learners",
+    description: "Students building daily learning consistency",
     icon: "🎓",
-    color: "#7c5cbf",
-    bg: "#f5f3ff",
   },
 ];
 
@@ -39,116 +31,83 @@ const testimonials = [
   {
     name: "Arjun Mehta",
     grade: "Class 12 Student",
-    text: "LearnHub helped me score 98% in my board exams! The AI-powered study plans and live tutoring sessions made all the difference.",
-    rating: 5,
+    text: "LearnHub helped me score 98% in my final board exams. The structured lesson plans and instant AI answers saved me hours every week.",
     avatar: "👦",
-    tag: "Mathematics Topper",
-    color: "#4f6ef7",
+    tag: "98% Board Score",
   },
   {
     name: "Sneha Patel",
     grade: "Class 10 Student",
-    text: "The personalized learning path understood exactly where I was struggling. My grades improved from 65% to 89% in just 3 months!",
-    rating: 5,
+    text: "The adaptive study path pinpointed exact concepts I was confused about. My science scores went from 65% to 89% in under 3 months.",
     avatar: "👧",
-    tag: "Science Excellence",
-    color: "#26de81",
+    tag: "Science Distinction",
   },
   {
     name: "Rohan Gupta",
     grade: "JEE Aspirant",
-    text: "The practice tests and detailed analytics helped me identify weak areas. Cracked JEE Advanced with AIR 847 — couldn't have done it without LearnHub!",
-    rating: 5,
+    text: "Detailed mock tests and performance analytics gave me full clarity. Cracked JEE Advanced with AIR 847 — couldn't be happier!",
     avatar: "👨‍🎓",
-    tag: "JEE Advanced AIR 847",
-    color: "#ff9f43",
+    tag: "JEE AIR 847",
   },
 ];
 
 export default function ResultsSection() {
   return (
-    <div className="mb-8">
-      <div className="text-center mb-6">
-        <h3
-          className="section-title text-2xl mb-2"
-          style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-        >
-          Results that speak for themselves
+    <section className="mt-12 pt-8 border-t border-slate-200/80 mb-12">
+      <div className="text-center max-w-xl mx-auto mb-10">
+        <h3 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
+          Proven Academic Excellence
         </h3>
-        <p style={{ color: "var(--color-text-secondary)", fontSize: "0.9rem" }}>
-          Thousands of students are achieving their academic dreams with LearnHub
+        <p className="text-xs text-slate-500 leading-relaxed">
+          Empowering thousands of students with structured tools, personal tutoring, and AI guidance.
         </p>
       </div>
 
-      {/* Stats */}
-      <div className="grid grid-cols-4 gap-4 mb-8">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
         {stats.map((stat) => (
           <div
-            key={stat.value}
-            className="card p-5 text-center"
+            key={stat.label}
+            className="bg-white rounded-2xl border border-slate-200/80 p-5 text-center shadow-xs"
           >
-            <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl mx-auto mb-3"
-              style={{ background: stat.bg }}
-            >
+            <div className="w-10 h-10 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl mx-auto mb-3">
               {stat.icon}
             </div>
-            <p
-              className="text-3xl font-800 mb-0.5"
-              style={{
-                color: stat.color,
-                fontFamily: "Plus Jakarta Sans, sans-serif",
-                letterSpacing: "-0.02em",
-              }}
-            >
+            <p className="text-3xl font-extrabold text-slate-900 tracking-tight mb-1">
               {stat.value}
             </p>
-            <p className="text-sm font-700 mb-1" style={{ color: "var(--color-text-primary)" }}>
-              {stat.label}
-            </p>
-            <p className="text-xs leading-snug" style={{ color: "var(--color-text-secondary)" }}>
-              {stat.description}
-            </p>
+            <p className="text-xs font-bold text-slate-800 mb-1">{stat.label}</p>
+            <p className="text-[11px] text-slate-400 leading-normal">{stat.description}</p>
           </div>
         ))}
       </div>
 
       {/* Testimonials */}
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         {testimonials.map((t) => (
-          <div key={t.name} className="card p-5">
-            <div className="flex items-center gap-1 mb-3">
-              {Array.from({ length: t.rating }).map((_, i) => (
-                <span key={i} className="star-rating text-base">
-                  ★
-                </span>
-              ))}
+          <div
+            key={t.name}
+            className="bg-white rounded-2xl border border-slate-200/80 p-5 flex flex-col justify-between shadow-xs"
+          >
+            <div>
+              <div className="flex items-center gap-1 text-amber-500 text-xs mb-3">
+                ★★★★★
+              </div>
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                &ldquo;{t.text}&rdquo;
+              </p>
             </div>
-            <p
-              className="text-sm leading-relaxed mb-4"
-              style={{ color: "var(--color-text-secondary)" }}
-            >
-              &ldquo;{t.text}&rdquo;
-            </p>
-            <div className="flex items-center gap-3">
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center text-xl"
-                style={{ background: `${t.color}15` }}
-              >
-                {t.avatar}
+            <div className="flex items-center justify-between pt-3 border-t border-slate-100">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-base">
+                  {t.avatar}
+                </div>
+                <div>
+                  <p className="text-xs font-bold text-slate-900">{t.name}</p>
+                  <p className="text-[10px] text-slate-400">{t.grade}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-700" style={{ color: "var(--color-text-primary)" }}>
-                  {t.name}
-                </p>
-                <p className="text-xs" style={{ color: "var(--color-text-secondary)" }}>
-                  {t.grade}
-                </p>
-              </div>
-              <span
-                className="tag ml-auto"
-                style={{ background: `${t.color}18`, color: t.color }}
-              >
+              <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
                 {t.tag}
               </span>
             </div>
@@ -156,38 +115,22 @@ export default function ResultsSection() {
         ))}
       </div>
 
-      {/* CTA Footer Banner */}
-      <div
-        className="mt-6 rounded-2xl p-6 flex items-center justify-between relative overflow-hidden"
-        style={{ background: "linear-gradient(135deg, #1e2d6b 0%, #0d1234 100%)" }}
-      >
-        <div
-          className="absolute top-[-30px] right-[-30px] w-40 h-40 rounded-full opacity-10"
-          style={{ background: "#ff9f43" }}
-        />
+      {/* Footer Banner */}
+      <div className="bg-slate-900 rounded-2xl p-6 sm:p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
         <div>
-          <h4
-            className="text-xl font-800 text-white mb-1"
-            style={{ fontFamily: "Plus Jakarta Sans, sans-serif" }}
-          >
-            Ready to transform your learning? 🚀
+          <h4 className="text-xl font-bold tracking-tight text-white mb-1">
+            Ready to Elevate Your Learning Journey?
           </h4>
-          <p style={{ color: "#8892b0", fontSize: "0.875rem" }}>
-            Join 10,000+ students already achieving their goals. Start free today.
+          <p className="text-xs text-slate-300">
+            Join over 10,000 active students achieving better results every day.
           </p>
         </div>
-        <div className="flex gap-3 relative z-10">
-          <button className="btn-primary px-6 py-2.5">
-            Get Started Free
-          </button>
-          <button
-            className="px-6 py-2.5 rounded-xl font-600 text-sm transition-colors"
-            style={{ background: "rgba(255,255,255,0.1)", color: "white" }}
-          >
-            Watch Demo
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <button className="w-full sm:w-auto px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors">
+            Get Started Free &rarr;
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

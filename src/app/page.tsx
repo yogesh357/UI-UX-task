@@ -8,18 +8,18 @@ import ResultsSection from "@/components/ResultsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen" style={{ background: "var(--color-page-bg)" }}>
-      {/* Sidebar */}
+    <div className="flex min-h-screen bg-[#f8fafc] text-slate-900 antialiased font-sans">
+      {/* Sidebar Navigation */}
       <Sidebar />
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col" style={{ marginLeft: "220px" }}>
-        {/* Top Bar */}
+      {/* Main Container */}
+      <div className="flex-1 flex flex-col pl-[230px]">
+        {/* Top Header */}
         <TopBar />
 
-        {/* Page Content */}
-        <main className="flex-1 overflow-y-auto">
-          <div className="max-w-7xl mx-auto px-6 py-6">
+        {/* Dashboard Content Area */}
+        <main className="flex-1 px-8 py-8">
+          <div className="max-w-7xl mx-auto space-y-12">
             <HeroSection />
             <ExploreSection />
             <ActionsTools />

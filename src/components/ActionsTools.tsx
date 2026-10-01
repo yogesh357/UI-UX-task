@@ -3,143 +3,134 @@
 const tools = [
   {
     name: "AI Homework Helper",
-    description: "Get step-by-step solutions instantly",
+    description: "Instant step-by-step problem solver and concept explanations",
     icon: "🤖",
-    color: "#4f6ef7",
-    bg: "#eff6ff",
     badge: "Recommended",
-    badgeColor: "#4f6ef7",
+    badgeClass: "bg-indigo-50 text-indigo-600 border border-indigo-100",
   },
   {
     name: "Smart Flashcards",
-    description: "Spaced repetition for lasting memory",
+    description: "Spaced repetition algorithms for long-term memory retention",
     icon: "🃏",
-    color: "#7c5cbf",
-    bg: "#f5f3ff",
     badge: "Popular",
-    badgeColor: "#7c5cbf",
+    badgeClass: "bg-purple-50 text-purple-600 border border-purple-100",
   },
   {
-    name: "Essay Grader",
-    description: "AI-powered writing feedback",
+    name: "Essay Grader & Coach",
+    description: "Real-time grammar, tone, and structural writing feedback",
     icon: "✍️",
-    color: "#ff9f43",
-    bg: "#fff7ed",
     badge: "New",
-    badgeColor: "#ff9f43",
+    badgeClass: "bg-emerald-50 text-emerald-600 border border-emerald-100",
   },
 ];
 
 const quickTools = [
-  { name: "Calculator", icon: "🧮", color: "#4f6ef7", bg: "#eff6ff" },
-  { name: "Dictionary", icon: "📖", color: "#26de81", bg: "#f0fdf4" },
-  { name: "Mind Map", icon: "🗺️", color: "#fd79a8", bg: "#fdf2f8" },
-  { name: "Timer", icon: "⏱️", color: "#ff9f43", bg: "#fff7ed" },
-  { name: "Notes", icon: "📝", color: "#45aaf2", bg: "#eff9ff" },
-  { name: "Formula Sheet", icon: "🔢", color: "#00cec9", bg: "#f0fdfd" },
+  { name: "Calculator", icon: "🧮", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
+  { name: "Dictionary", icon: "📖", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
+  { name: "Mind Map", icon: "🗺️", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
+  { name: "Focus Timer", icon: "⏱️", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
+  { name: "Quick Notes", icon: "📝", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
+  { name: "Formulas", icon: "🔢", bg: "bg-slate-50 hover:bg-slate-100 text-slate-700" },
 ];
 
 export default function ActionsTools() {
   return (
-    <div className="mb-8">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="section-title">Actions &amp; Tools</h3>
+    <section id="actions-tools" className="mt-12 pt-8 border-t border-slate-200/80">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
+        <div>
+          <h3 className="text-xl font-bold tracking-tight text-slate-900">
+            Actions &amp; Tools
+          </h3>
+          <p className="text-xs text-slate-500 mt-0.5">
+            Smart AI assistants and study utilities to accelerate your learning
+          </p>
+        </div>
+        <span className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 cursor-pointer transition-colors">
+          View all tools &rarr;
+        </span>
       </div>
 
-      <div className="grid grid-cols-3 gap-5">
-        {/* Recommended Tools */}
-        <div className="col-span-2">
-          <p
-            className="text-xs font-600 uppercase tracking-wider mb-3"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            Recommended for you
-          </p>
-          <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Recommended AI Tools */}
+        <div className="lg:col-span-2 space-y-3">
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">
+              Recommended Utilities
+            </span>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             {tools.map((tool) => (
-              <div key={tool.name} className="card p-4 cursor-pointer group">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center text-xl mb-3"
-                  style={{ background: tool.bg }}
-                >
-                  {tool.icon}
+              <div
+                key={tool.name}
+                className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-slate-100/80 flex items-center justify-center text-xl group-hover:bg-indigo-50 transition-colors">
+                      {tool.icon}
+                    </div>
+                    <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${tool.badgeClass}`}>
+                      {tool.badge}
+                    </span>
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
+                    {tool.name}
+                  </h4>
+                  <p className="text-xs text-slate-500 leading-relaxed">
+                    {tool.description}
+                  </p>
                 </div>
-                <span
-                  className="tag mb-2"
-                  style={{ background: `${tool.badgeColor}18`, color: tool.badgeColor }}
-                >
-                  {tool.badge}
-                </span>
-                <p
-                  className="text-sm font-700 mt-2"
-                  style={{ color: "var(--color-text-primary)" }}
-                >
-                  {tool.name}
-                </p>
-                <p
-                  className="text-xs mt-1 leading-snug"
-                  style={{ color: "var(--color-text-secondary)" }}
-                >
-                  {tool.description}
-                </p>
-                <button
-                  className="mt-3 w-full py-1.5 rounded-lg text-xs font-600 transition-all"
-                  style={{ background: `${tool.color}15`, color: tool.color }}
-                >
-                  Open Tool
+                <button className="mt-4 w-full py-2 rounded-xl text-xs font-medium text-slate-700 bg-slate-50 hover:bg-indigo-50 hover:text-indigo-600 border border-slate-200/60 transition-colors">
+                  Open Assistant
                 </button>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Quick Tools */}
-        <div>
-          <p
-            className="text-xs font-600 uppercase tracking-wider mb-3"
-            style={{ color: "var(--color-text-muted)" }}
-          >
-            Quick Tools
-          </p>
-          <div className="card p-4">
-            <div className="grid grid-cols-3 gap-3">
-              {quickTools.map((tool) => (
-                <button
-                  key={tool.name}
-                  className="flex flex-col items-center gap-1.5 p-2.5 rounded-xl hover:scale-105 transition-transform cursor-pointer"
-                  style={{ background: tool.bg }}
-                >
-                  <span className="text-xl">{tool.icon}</span>
-                  <span
-                    className="text-xs font-600 text-center leading-tight"
-                    style={{ color: tool.color, fontSize: "0.65rem" }}
+        {/* Quick Tools & Upgrade */}
+        <div className="space-y-4">
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3">
+              Quick Tools
+            </span>
+            <div className="bg-white rounded-2xl border border-slate-200/80 p-4">
+              <div className="grid grid-cols-3 gap-2.5">
+                {quickTools.map((tool) => (
+                  <button
+                    key={tool.name}
+                    className={`flex flex-col items-center justify-center p-3 rounded-xl border border-slate-100 transition-all ${tool.bg} cursor-pointer`}
                   >
-                    {tool.name}
-                  </span>
-                </button>
-              ))}
+                    <span className="text-xl mb-1">{tool.icon}</span>
+                    <span className="text-[11px] font-medium text-slate-700 text-center truncate w-full">
+                      {tool.name}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Upgrade Banner */}
-          <div
-            className="mt-3 rounded-xl p-4 relative overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #1e2d6b, #0d1234)" }}
-          >
-            <div
-              className="absolute top-[-15px] right-[-15px] w-16 h-16 rounded-full opacity-20"
-              style={{ background: "#4f6ef7" }}
-            />
-            <p className="text-white font-700 text-sm mb-1">Go Pro 🚀</p>
-            <p className="text-xs mb-3" style={{ color: "#8892b0" }}>
-              Unlock all tools, live tutoring & more
-            </p>
-            <button className="btn-orange text-xs px-3 py-1.5 w-full">
-              Upgrade Now
-            </button>
+          {/* Minimalist Pro Upgrade Card */}
+          <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-2xl p-5 text-white relative overflow-hidden shadow-sm">
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-semibold border border-indigo-400/20 mb-2">
+                ✨ Pro Subscription
+              </div>
+              <h4 className="text-sm font-bold text-white mb-1">
+                Unlock Unlimited AI &amp; Tutoring
+              </h4>
+              <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                Get unlimited step-by-step AI solutions, priority tutor booking, and certified courses.
+              </p>
+              <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition-colors">
+                Upgrade to Pro
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

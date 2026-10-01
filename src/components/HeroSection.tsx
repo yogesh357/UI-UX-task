@@ -1,252 +1,188 @@
 "use client";
 
 const PROGRESS = [
-  { title: "Advanced Calculus", subject: "Mathematics", pct: 72, color: "#5b72f8", lessons: "24 / 33", icon: "📐" },
-  { title: "English Grammar Pro", subject: "English", pct: 45, color: "#20c97a", lessons: "9 / 20", icon: "📖" },
-  { title: "Physics: Mechanics", subject: "Science", pct: 31, color: "#ff9f43", lessons: "5 / 16", icon: "⚛️" },
+  { title: "Advanced Calculus", subject: "Mathematics", pct: 72, color: "#4f46e5", lessons: "24 / 33 lessons", icon: "📐" },
+  { title: "English Grammar Pro", subject: "English", pct: 45, color: "#10b981", lessons: "9 / 20 lessons", icon: "📖" },
+  { title: "Physics: Mechanics", subject: "Science", pct: 31, color: "#f59e0b", lessons: "5 / 16 lessons", icon: "⚛️" },
 ];
 
 const SCHEDULE = [
-  { time: "4:00 PM", label: "Calculus Doubt Session", tutor: "Aditya Jha", color: "#5b72f8" },
-  { time: "6:30 PM", label: "English Essay Review", tutor: "Priya Singh", color: "#20c97a" },
-  { time: "Tomorrow", label: "Physics Mock Test", tutor: "Self-paced", color: "#ff9f43" },
+  { time: "4:00 PM", label: "Calculus Doubt Session", tutor: "Aditya Jha", tag: "Live Soon" },
+  { time: "6:30 PM", label: "English Essay Review", tutor: "Priya Singh", tag: "Scheduled" },
+  { time: "Tomorrow", label: "Physics Mock Test", tutor: "Self-paced", tag: "Practice" },
 ];
 
 export default function HeroSection() {
   return (
-    <div className="grid gap-5" style={{ gridTemplateColumns: "1fr 280px" }}>
+    <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      {/* ── Left 2 Columns: Welcome Banner + Progress ── */}
+      <div className="lg:col-span-2 space-y-6">
 
-      {/* ── Left column ── */}
-      <div className="flex flex-col gap-4">
-
-        {/* Hero banner */}
-        <div
-          className="relative rounded-2xl overflow-hidden"
-          style={{
-            background: "linear-gradient(125deg, #1b2870 0%, #0e1538 55%, #1a1060 100%)",
-            minHeight: 168,
-          }}
-        >
-          {/* Decorative blobs */}
-          <div
-            className="absolute top-[-40px] left-[-40px] w-48 h-48 rounded-full opacity-20"
-            style={{ background: "radial-gradient(circle, #5b72f8, transparent 70%)" }}
-          />
-          <div
-            className="absolute bottom-[-30px] right-[200px] w-36 h-36 rounded-full opacity-15"
-            style={{ background: "radial-gradient(circle, #845ef7, transparent 70%)" }}
-          />
-
-          <div className="relative z-10 flex items-center justify-between p-6 h-full">
-            {/* Text */}
-            <div className="flex-1">
-              <div
-                className="inline-flex items-center gap-1.5 pill pill-blue mb-3"
-                style={{ background: "rgba(91,114,248,0.22)", color: "#8fa0ff" }}
-              >
-                🎯 Pick up where you left off
-              </div>
-              <h2
-                className="text-2xl font-extrabold text-white mb-1 leading-tight"
-                style={{ fontFamily: "Plus Jakarta Sans,sans-serif", letterSpacing: "-0.025em" }}
-              >
-                Jump back in, Dana
-              </h2>
-              <p className="text-sm mb-4" style={{ color: "#8892b5", maxWidth: 320 }}>
-                You&apos;re on a roll! Finish 2 more tasks today to hit your daily goal.
-              </p>
-              <div className="flex gap-2">
-                <button className="btn btn-blue btn-md" style={{ fontSize: "0.8125rem" }}>
-                  Continue Learning →
-                </button>
-                <button className="btn btn-ghost btn-md" style={{ fontSize: "0.8125rem" }}>
-                  View My Plan
-                </button>
-              </div>
+        {/* Hero banner - Clean minimalist card */}
+        <div className="relative rounded-2xl bg-white border border-slate-200/80 p-6 md:p-7 shadow-xs overflow-hidden flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="max-w-md relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-700 text-xs font-semibold mb-3">
+              <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
+              Pick up where you left off
             </div>
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 mb-2">
+              Welcome back, Dana 👋
+            </h2>
+            <p className="text-xs text-slate-500 leading-relaxed mb-5">
+              You&apos;re making solid progress today! Complete 2 more lessons to maintain your study streak and achieve your daily goal.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-colors">
+                Continue Learning &rarr;
+              </button>
+              <button className="px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors">
+                View Study Plan
+              </button>
+            </div>
+          </div>
 
-            {/* Mascot */}
-            <div className="flex flex-col items-center gap-1 mr-2">
-              <div
-                className="w-24 h-24 rounded-2xl flex items-center justify-center text-5xl relative"
-                style={{
-                  background: "linear-gradient(135deg, rgba(91,114,248,0.22), rgba(132,94,247,0.1))",
-                  border: "1px solid rgba(91,114,248,0.3)",
-                }}
-              >
-                🐧
-                <span
-                  className="absolute -top-1.5 -right-1.5 text-[10px] font-700 px-1.5 py-0.5 rounded-full"
-                  style={{ background: "var(--color-green)", color: "white" }}
-                >
-                  AI
-                </span>
-              </div>
-              <span
-                className="text-[10px] font-600 px-2 py-0.5 rounded-full"
-                style={{ background: "rgba(32,201,122,0.18)", color: "#20c97a" }}
-              >
-                AI Tutor Ready
+          {/* Minimalist AI Assistant Widget */}
+          <div className="w-full sm:w-auto flex-shrink-0 flex sm:flex-col items-center justify-between p-4 rounded-xl bg-slate-50 border border-slate-200/60 gap-3">
+            <div className="w-14 h-14 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-center justify-center text-3xl">
+              🐧
+            </div>
+            <div className="text-center">
+              <span className="text-[11px] font-bold text-slate-800 block">Dana AI Assistant</span>
+              <span className="text-[10px] text-emerald-600 font-semibold flex items-center justify-center gap-1 mt-0.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Ready to help
               </span>
             </div>
           </div>
         </div>
 
-        {/* My Progress */}
-        <div className="card p-5">
-          <div className="flex items-center justify-between mb-4">
+        {/* My Progress Card */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
+          <div className="flex items-center justify-between mb-5">
             <div>
-              <h3 className="sec-head">My Progress</h3>
-              <p className="sec-sub mt-0.5">Your active courses</p>
+              <h3 className="text-base font-bold text-slate-900">Current Progress</h3>
+              <p className="text-xs text-slate-500 mt-0.5">Your active learning tracks</p>
             </div>
-            <span className="link-more">View all →</span>
+            <button className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 transition-colors">
+              View all courses &rarr;
+            </button>
           </div>
 
-          {/* NPF badge row */}
-          <div
-            className="flex items-center gap-3 p-3 rounded-xl mb-4"
-            style={{ background: "linear-gradient(90deg,rgba(91,114,248,0.07),rgba(132,94,247,0.04))", border: "1px solid rgba(91,114,248,0.12)" }}
-          >
-            <div
-              className="w-10 h-10 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
-              style={{ background: "linear-gradient(135deg,#5b72f8,#845ef7)" }}
-            >
+          {/* Minimalist Overall Progress Indicator */}
+          <div className="bg-slate-50 rounded-xl p-4 border border-slate-200/60 flex items-center gap-4 mb-5">
+            <div className="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-base flex-shrink-0">
               🎓
             </div>
-            <div className="flex-1">
-              <p className="text-xs font-700" style={{ color: "var(--color-text-1)" }}>NPF Learner</p>
-              <div className="flex items-center gap-2 mt-1">
-                <div className="progress-track flex-1"><div className="progress-fill" style={{ width: "68%" }} /></div>
-                <span className="text-[11px] font-600" style={{ color: "var(--color-blue)" }}>68%</span>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs font-bold text-slate-900">Overall Course Completion</span>
+                <span className="text-xs font-bold text-indigo-600">68%</span>
+              </div>
+              <div className="w-full h-2 bg-slate-200 rounded-full overflow-hidden">
+                <div className="h-full bg-indigo-600 rounded-full transition-all duration-500" style={{ width: "68%" }} />
               </div>
             </div>
-            <div className="flex items-center gap-1.5 text-[11px]" style={{ color: "var(--color-text-3)" }}>
-              <span>🔥</span> <span style={{ color: "var(--color-orange)", fontWeight: 700 }}>7</span>
-              <span>⭐ 4.8</span>
-              <span className="pill pill-green" style={{ fontSize: "0.65rem" }}>Top 5%</span>
+            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 border-l border-slate-200 pl-4">
+              <div>
+                <span className="block text-[10px] text-slate-400 font-medium">Streak</span>
+                <span className="font-bold text-slate-800">🔥 7 Days</span>
+              </div>
             </div>
           </div>
 
-          <div className="space-y-3">
+          {/* Active Courses */}
+          <div className="space-y-4">
             {PROGRESS.map((c) => (
-              <div key={c.title} className="flex items-center gap-3 group cursor-pointer">
-                <div
-                  className="subj-icon w-9 h-9 text-lg flex-shrink-0"
-                  style={{ background: `${c.color}14`, borderRadius: 10 }}
-                >
+              <div key={c.title} className="flex items-center gap-4 group cursor-pointer p-2 hover:bg-slate-50 rounded-xl transition-colors">
+                <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-xl flex-shrink-0">
                   {c.icon}
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <p className="text-xs font-600 truncate" style={{ color: "var(--color-text-1)" }}>{c.title}</p>
-                    <span className="text-xs font-700 ml-2 flex-shrink-0" style={{ color: c.color }}>{c.pct}%</span>
+                    <p className="text-xs font-bold text-slate-900 truncate">{c.title}</p>
+                    <span className="text-xs font-semibold text-slate-600 ml-2">{c.pct}%</span>
                   </div>
-                  <div className="progress-track">
-                    <div className="progress-fill" style={{ width: `${c.pct}%`, background: `linear-gradient(90deg,${c.color},${c.color}99)` }} />
+                  <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-500"
+                      style={{ width: `${c.pct}%`, backgroundColor: c.color }}
+                    />
                   </div>
-                  <p className="text-[10px] mt-1" style={{ color: "var(--color-text-3)" }}>{c.lessons} lessons</p>
+                  <p className="text-[10px] text-slate-400 mt-1">{c.lessons}</p>
                 </div>
-                <button
-                  className="btn btn-sm opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0"
-                  style={{ background: `${c.color}14`, color: c.color, borderRadius: 8, fontSize: "0.65rem" }}
-                >
+                <button className="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-700 bg-white border border-slate-200/80 hover:bg-slate-100 transition-colors opacity-90 group-hover:opacity-100 flex-shrink-0">
                   Resume
                 </button>
               </div>
             ))}
           </div>
         </div>
+
       </div>
 
-      {/* ── Right column: Today's goal + schedule ── */}
-      <div className="flex flex-col gap-4">
+      {/* ── Right Column: Goal + Schedule ── */}
+      <div className="space-y-6">
 
-        {/* Daily goal card */}
-        <div className="card p-5">
-          <p className="text-[10px] font-700 uppercase tracking-wider mb-3" style={{ color: "var(--color-text-3)" }}>
-            Today&apos;s Goal
-          </p>
-          <div className="flex items-center gap-3 mb-4">
-            <div
-              className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl"
-              style={{ background: "rgba(91,114,248,0.1)" }}
-            >
+        {/* Daily Goal Card */}
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 block mb-3">
+            Daily Learning Goal
+          </span>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-12 h-12 rounded-xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-2xl">
               🎯
             </div>
             <div>
-              <p
-                className="text-2xl font-800 leading-tight"
-                style={{ color: "var(--color-text-1)", fontFamily: "Plus Jakarta Sans,sans-serif" }}
-              >
-                3 <span className="text-sm font-500" style={{ color: "var(--color-text-3)" }}>/ 5</span>
+              <p className="text-2xl font-bold tracking-tight text-slate-900">
+                3 <span className="text-sm font-medium text-slate-400">/ 5 tasks</span>
               </p>
-              <p className="text-[11px]" style={{ color: "var(--color-text-2)" }}>tasks done</p>
+              <p className="text-xs text-slate-500">60% completed</p>
             </div>
           </div>
-          <div className="progress-track mb-2">
-            <div className="progress-fill" style={{ width: "60%" }} />
+          <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden mb-5">
+            <div className="h-full bg-indigo-600 rounded-full transition-all duration-500" style={{ width: "60%" }} />
           </div>
-          <p className="text-[11px] mb-4" style={{ color: "var(--color-text-3)" }}>60% of daily goal achieved</p>
+
           <div className="grid grid-cols-3 gap-2">
-            {[["🔥","7d","Streak"],["⚡","240","XP Today"],["🏆","#12","Rank"]].map(([icon,val,lbl]) => (
-              <div key={lbl} className="card-inset p-2 text-center">
-                <div className="text-base mb-0.5">{icon}</div>
-                <div className="text-xs font-700" style={{ color: "var(--color-text-1)" }}>{val}</div>
-                <div className="text-[9px]" style={{ color: "var(--color-text-3)" }}>{lbl}</div>
+            {[
+              { label: "Streak", val: "7 Days", icon: "🔥" },
+              { label: "XP Today", val: "240", icon: "⚡" },
+              { label: "Rank", val: "#12", icon: "🏆" },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-slate-50 border border-slate-100 rounded-xl p-2.5 text-center">
+                <span className="text-sm block mb-0.5">{stat.icon}</span>
+                <span className="text-xs font-bold text-slate-900 block">{stat.val}</span>
+                <span className="text-[10px] text-slate-400 block">{stat.label}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* Schedule */}
-        <div className="card p-5 flex-1">
+        <div className="bg-white rounded-2xl border border-slate-200/80 p-6 shadow-xs">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="sec-head text-sm">Your Schedule</h3>
-            <span className="link-more">+ Add</span>
+            <h3 className="text-sm font-bold text-slate-900">Upcoming Schedule</h3>
+            <button className="text-xs font-medium text-indigo-600 hover:text-indigo-700">
+              + Add
+            </button>
           </div>
           <div className="space-y-3">
             {SCHEDULE.map((s) => (
-              <div key={s.label} className="flex items-start gap-3">
-                <div
-                  className="w-1 rounded-full self-stretch flex-shrink-0 mt-0.5"
-                  style={{ background: s.color, minHeight: 32 }}
-                />
-                <div className="flex-1">
-                  <p className="text-xs font-600" style={{ color: "var(--color-text-1)" }}>{s.label}</p>
-                  <p className="text-[10px] mt-0.5" style={{ color: "var(--color-text-3)" }}>
+              <div key={s.label} className="p-3 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="text-xs font-bold text-slate-900 truncate">{s.label}</p>
+                  <p className="text-[10px] text-slate-500 mt-0.5">
                     {s.time} · {s.tutor}
                   </p>
                 </div>
-                <button
-                  className="btn btn-sm"
-                  style={{ background: `${s.color}12`, color: s.color, borderRadius: 7, fontSize: "0.65rem", padding: "4px 10px" }}
-                >
-                  Join
-                </button>
+                <span className="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] font-semibold text-slate-700 flex-shrink-0">
+                  {s.tag}
+                </span>
               </div>
             ))}
           </div>
-
-          {/* Weekly heatmap placeholder */}
-          <div className="mt-4 pt-4" style={{ borderTop: "1px solid var(--color-border)" }}>
-            <p className="text-[10px] font-600 mb-2" style={{ color: "var(--color-text-3)" }}>This week</p>
-            <div className="flex gap-1">
-              {["M","T","W","T","F","S","S"].map((d,i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                  <div
-                    className="w-full aspect-square rounded"
-                    style={{
-                      background: i < 3 ? "var(--color-blue)" : i === 3 ? "rgba(91,114,248,0.4)" : "var(--color-border)",
-                      opacity: i < 3 ? 1 : 1,
-                    }}
-                  />
-                  <span className="text-[9px]" style={{ color: "var(--color-text-4)" }}>{d}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
+
       </div>
-    </div>
+    </section>
   );
 }
