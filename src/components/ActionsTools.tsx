@@ -113,23 +113,8 @@ export default function ActionsTools() {
           </div>
 
           {/* Minimalist Pro Upgrade Card */}
-          <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-2xl p-5 text-white relative overflow-hidden shadow-sm">
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-semibold border border-indigo-400/20 mb-2">
-                ✨ Pro Subscription
-              </div>
-              <h4 className="text-sm font-bold text-white mb-1">
-                Unlock Unlimited AI &amp; Tutoring
-              </h4>
-              <p className="text-xs text-slate-300 mb-4 leading-relaxed">
-                Get unlimited step-by-step AI solutions, priority tutor booking, and certified courses.
-              </p>
-              <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition-colors">
-                Upgrade to Pro
-              </button>
-            </div>
-          </div>
-        </div>
+
+        </div>  
       </div>
     </section>
   );
