@@ -51,10 +51,9 @@ export default function TopBar() {
 
         {/* Avatar */}
         <div
-          className="avatar w-8 h-8 text-sm text-white cursor-pointer ring-2"
+          className="avatar w-8 h-8 text-sm text-white cursor-pointer ring-2 ring-[#5b72f8]/40"
           style={{
             background: "linear-gradient(135deg,#5b72f8,#845ef7)",
-            ringColor: "rgba(91,114,248,0.4)",
           }}
         >
           D
