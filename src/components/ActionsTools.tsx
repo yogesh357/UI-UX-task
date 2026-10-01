@@ -35,11 +35,11 @@ const quickTools = [
 
 export default function ActionsTools() {
   return (
-    <section id="actions-tools" className="mt-12 pt-8 border-t border-slate-200/80">
+    <section id="actions-tools" className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200/80">
       {/* Header */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-slate-900">
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">
             Actions &amp; Tools
           </h3>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -59,11 +59,11 @@ export default function ActionsTools() {
               Recommended Utilities
             </span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {tools.map((tool) => (
               <div
                 key={tool.name}
-                className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer"
+                className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 hover:border-slate-300 hover:shadow-sm transition-all flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
@@ -74,7 +74,7 @@ export default function ActionsTools() {
                       {tool.badge}
                     </span>
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 mb-1 group-hover:text-indigo-600 transition-colors">
                     {tool.name}
                   </h4>
                   <p className="text-xs text-slate-500 leading-relaxed">
@@ -95,15 +95,15 @@ export default function ActionsTools() {
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-3">
               Quick Tools
             </span>
-            <div className="bg-white rounded-2xl border border-slate-200/80 p-4">
-              <div className="grid grid-cols-3 gap-2.5">
+            <div className="bg-white rounded-2xl border border-slate-200/80 p-3.5 sm:p-4">
+              <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
                 {quickTools.map((tool) => (
                   <button
                     key={tool.name}
-                    className={`flex flex-col items-center justify-center p-3 rounded-xl border border-slate-100 transition-all ${tool.bg} cursor-pointer`}
+                    className={`flex flex-col items-center justify-center p-2.5 sm:p-3 rounded-xl border border-slate-100 transition-all ${tool.bg} cursor-pointer`}
                   >
-                    <span className="text-xl mb-1">{tool.icon}</span>
-                    <span className="text-[11px] font-medium text-slate-700 text-center truncate w-full">
+                    <span className="text-lg sm:text-xl mb-1">{tool.icon}</span>
+                    <span className="text-[10px] sm:text-[11px] font-medium text-slate-700 text-center truncate w-full">
                       {tool.name}
                     </span>
                   </button>
@@ -113,8 +113,23 @@ export default function ActionsTools() {
           </div>
 
           {/* Minimalist Pro Upgrade Card */}
-
-        </div>  
+          <div className="bg-gradient-to-br from-slate-900 to-indigo-950 rounded-2xl p-4 sm:p-5 text-white relative overflow-hidden shadow-sm">
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 text-[10px] font-semibold border border-indigo-400/20 mb-2">
+                ✨ Pro Subscription
+              </div>
+              <h4 className="text-xs sm:text-sm font-bold text-white mb-1">
+                Unlock Unlimited AI &amp; Tutoring
+              </h4>
+              <p className="text-xs text-slate-300 mb-4 leading-relaxed">
+                Get unlimited step-by-step AI solutions, priority tutor booking, and certified courses.
+              </p>
+              <button className="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-semibold transition-colors">
+                Upgrade to Pro
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

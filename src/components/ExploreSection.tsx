@@ -33,11 +33,11 @@ export default function ExploreSection() {
   const list = filter === "All" ? COURSES : COURSES.filter((c) => c.sub === filter);
 
   return (
-    <section className="mt-12 pt-8 border-t border-slate-200/80">
+    <section className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-200/80">
       {/* ── Subject Header & Grid ── */}
-      <div className="flex items-center justify-between mb-6">
+      <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-slate-900">Explore by Subject</h3>
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">Explore by Subject</h3>
           <p className="text-xs text-slate-500 mt-0.5">Choose a domain to start learning</p>
         </div>
         <span className="text-xs font-semibold text-indigo-600 hover:text-indigo-700 cursor-pointer">
@@ -45,18 +45,18 @@ export default function ExploreSection() {
         </span>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 mb-10">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3 mb-8 sm:mb-10">
         {SUBJECTS.map((s) => (
           <button
             key={s.name}
             onClick={() => setFilter(s.name === filter ? "All" : s.name)}
-            className={`bg-white rounded-2xl border p-4 flex flex-col items-center text-center cursor-pointer transition-all ${
+            className={`bg-white rounded-2xl border p-3.5 sm:p-4 flex flex-col items-center text-center cursor-pointer transition-all ${
               filter === s.name
                 ? "border-indigo-600 ring-2 ring-indigo-600/10 shadow-xs"
                 : "border-slate-200/80 hover:border-slate-300"
             }`}
           >
-            <div className="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-xl mb-2">
+            <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl bg-slate-50 flex items-center justify-center text-lg sm:text-xl mb-2">
               {s.icon}
             </div>
             <span className="text-xs font-bold text-slate-800 leading-snug line-clamp-1">{s.name}</span>
@@ -66,19 +66,19 @@ export default function ExploreSection() {
       </div>
 
       {/* ── Popular Courses Header & Filters ── */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 mb-5">
         <div>
-          <h3 className="text-xl font-bold tracking-tight text-slate-900">Popular Courses</h3>
+          <h3 className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">Popular Courses</h3>
           <p className="text-xs text-slate-500 mt-0.5">Top rated courses crafted by expert educators</p>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full scrollbar-none">
           {FILTERS.map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all cursor-pointer flex-shrink-0 ${
                 filter === f
                   ? "bg-slate-900 text-white shadow-xs font-semibold"
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
@@ -95,32 +95,32 @@ export default function ExploreSection() {
         {list.map((c) => (
           <div
             key={c.id}
-            className="bg-white rounded-2xl border border-slate-200/80 p-5 hover:border-slate-300 hover:shadow-sm transition-all cursor-pointer group flex flex-col justify-between"
+            className="bg-white rounded-2xl border border-slate-200/80 p-4 sm:p-5 hover:border-slate-300 hover:shadow-sm transition-all cursor-pointer group flex flex-col justify-between"
           >
             <div>
               <div className="flex items-start justify-between gap-3 mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-slate-50 flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-indigo-50 transition-colors">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-xl bg-slate-50 flex items-center justify-center text-xl sm:text-2xl flex-shrink-0 group-hover:bg-indigo-50 transition-colors">
                     {c.icon}
                   </div>
-                  <div>
-                    <span className="text-[11px] font-semibold text-indigo-600 uppercase tracking-wider block">
+                  <div className="min-w-0">
+                    <span className="text-[11px] font-semibold text-indigo-600 uppercase tracking-wider block truncate">
                       {c.sub}
                     </span>
-                    <h4 className="text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition-colors">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-indigo-600 transition-colors truncate">
                       {c.title}
                     </h4>
                   </div>
                 </div>
                 {c.badge && (
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-700 border border-slate-200 flex-shrink-0">
                     {c.badge}
                   </span>
                 )}
               </div>
 
               {/* Meta details */}
-              <div className="flex items-center gap-3 text-xs text-slate-500 mb-4 flex-wrap">
+              <div className="flex items-center gap-2 sm:gap-3 text-xs text-slate-500 mb-4 flex-wrap">
                 <span className="flex items-center gap-1 font-semibold text-slate-800">
                   <span className="text-amber-500">★</span> {c.rating}
                 </span>
@@ -136,8 +136,8 @@ export default function ExploreSection() {
             </div>
 
             <div className="flex items-center justify-between pt-3 border-t border-slate-100 mt-2">
-              <span className="text-sm font-bold text-slate-900">{c.price}</span>
-              <button className="px-4 py-1.5 rounded-xl text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 transition-colors">
+              <span className="text-xs sm:text-sm font-bold text-slate-900">{c.price}</span>
+              <button className="px-3.5 py-1.5 rounded-xl text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 transition-colors">
                 Enroll Now &rarr;
               </button>
             </div>
